@@ -1,13 +1,11 @@
-feature "see greeter at the beginning of page" do
-  scenario "user can see a greeter at the beginning of page" do
+feature "asks for birthday info and then stores it" do
+  scenario "user puts info in and sees it in page after" do
     visit('/')
-    expect(page).to have_content 'Hello There!'
-  end
-end
-
-feature "Stores user data that was filled out in form" do
-  scenario "user fills in form and it is stored as param" do
-    visit('/')
-    expect(page).to have_button 'Submit'
+    fill_in :birthday_name, with: 'Kareem'
+    fill_in :birthday, with: 15
+    select "July", from: 'month'
+    click_button 'Go!'
+    expect(page).to have_content('Kareem')
+    expect(page).to have_content('July')
   end
 end

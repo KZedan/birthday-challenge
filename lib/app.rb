@@ -3,15 +3,17 @@ require 'shotgun'
 set :session_secret, 'super secret'
 
 class Birthday < Sinatra::Base
+  enable :sessions
 
   get '/' do
-    name = params[:name]
-    day = params[:day]
-    month = params[:month]
-    erb(:index)
+    erb :index
   end
 
   post '/info' do
+    @name = params[:birthday_name]
+    @day = params[:birthday]
+    @month = params[:month]
+    erb :test_view
   end
 
   run! if app_file == $0
