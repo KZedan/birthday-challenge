@@ -5,8 +5,13 @@ set :session_secret, 'super secret'
 class Birthday < Sinatra::Base
 
   get '/' do
-    @string = "Hello"
+    name = params[:name]
+    day = params[:day]
+    month = params[:month]
     erb(:index)
+  end
+
+  post '/info' do
   end
 
   run! if app_file == $0
