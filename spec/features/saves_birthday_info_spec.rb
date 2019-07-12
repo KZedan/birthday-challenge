@@ -6,6 +6,7 @@ feature "asks for birthday info and then stores it" do
     select "July", from: 'month'
     click_button 'Go!'
     expect(page).to have_content('Kareem')
-    expect(page).to have_content('July')
+    expect(page).to have_content(07)
+    expect(page).to have_content(15)
   end
 end

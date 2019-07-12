@@ -13,15 +13,19 @@ class BirthdayCalculator
     "Happy Birthday #{@name}!"
   end
 
+  def time_left
+    "Your birthday is in #{@day - day_now} days and #{@month - month_now} months"
+  end
+
   private
 
   def day_now
-    time = time.new
+    time = Time.new
     time.day
   end
 
   def month_now
-    time = time.new
+    time = Time.new
     time.month
   end
 end
