@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'shotgun'
+require_relative 'birthday_calculator'
 set :session_secret, 'super secret'
 
 class Birthday < Sinatra::Base
@@ -10,10 +11,14 @@ class Birthday < Sinatra::Base
   end
 
   post '/info' do
-    @name = params[:birthday_name]
-    @day = params[:birthday]
-    @month = params[:month]
+    $birthday = BirthdayCalculator.new(params[:birthday_name], params[:birthday], params[:month])
     erb :test_view
+    redirect '/function'
+  end
+
+  get '/function' do
+    @birthday = $birthday
+    erb :function
   end
 
   run! if app_file == $0

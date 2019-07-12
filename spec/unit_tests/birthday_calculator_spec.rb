@@ -1,10 +1,7 @@
 require 'birthday_calculator'
 
 describe BirthdayCalculator do
-  let(:birthday) {described_class.new("Kareem", 15, 07)}
-  # let(:name) {double(:name)}
-  # let(:day) {double(:day)}
-  # let(:month) {double(:month)}
+  let(:birthday) {described_class.new("Kareem", 15, 7)}
 
   context "Birthday is today" do
     before do

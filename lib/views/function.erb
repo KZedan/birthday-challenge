@@ -1,0 +1,5 @@
+  <%= if @birthday.today?
+    $birthday.print
+  else
+    @birthday.time_left
+  end %>

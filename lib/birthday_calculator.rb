@@ -14,7 +14,7 @@ class BirthdayCalculator
   end
 
   def time_left
-    "Your birthday is in #{@day - day_now} days and #{@month - month_now} months"
+    "Your birthday is in #{@month.to_i - month_now} months and #{@day.to_i - day_now} days"
   end
 
   private
